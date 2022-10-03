@@ -96,7 +96,14 @@ function generatePassword() {
 
   // window will prompt you to put in a number for the length and different options in regards to the password
   var passwordLength = window.prompt("How long of a password would you like");
-
+  if (isNaN(passwordLength)) {
+    alert("you must enter a number");
+    return "";
+  }
+  if (passwordLength < 8 || passwordLength > 128) {
+    alert("you must enter an amount between 8 to 128");
+    return "";
+  }
   var includeSpecialChars = confirm(
     "Would you like to include special characters"
   );
